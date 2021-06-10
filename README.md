@@ -2,12 +2,24 @@
 
 > A Facebook clone built with Ruby on Rails. This project is meant to capture some of the CRUD functionality found in Facebook.
 
+## Features 
+- User authentication (sign in, sign out, authorized routes).
+- CRUD posts functionality.
+- Adding and removing friends.
+- Likes and dislikes.
+- Friend timelines.
+- Data persitence with PostgreSQL.
+- Tested with RSpec.
+- Unique all green color scheme (/s).
+- Hosted on heroku.
+
 ![facebook](./app/assets/images/screenshots/facebook-clone.png)
 
 ## Built With
 
 - Ruby v2.7.0
 - Ruby on Rails v5.2.4
+- Postgres >=9.5
 
 ## Live Demo
 
@@ -69,14 +81,6 @@ Deployed to Heroku
 Contributions, issues and feature requests are welcome!
 
 Feel free to check the [issues page](issues/).
-
-## Show your support
-
-Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-Microverse
 
 ## 📝 License
 

@@ -1,0 +1,39 @@
+<h1>Friends</h1>
+<% if current_user.friends.any? %>
+  <% current_user.friends.each do |friend| %>
+  <li>
+    <%= friend.name %>
+    <%= friend.email %> <br>
+    <%= link_to 'Remove friend', friendship_path(friend.id), method: :delete %>
+    <%= link_to 'Go to profile', user_path(friend.id) %>
+  </li>
+  <% end %>
+<% else %>
+    No friends...
+<% end %>
+<h1>Friend Requests</h1>
+<% if current_user.friend_requests.any? %>
+  <% current_user.friend_requests.each do |friend_request| %>
+    <li>
+      <%= friend_request.name %> <br>
+      <%= link_to 'Accept', friendship_path(friend_request.id), method: :put %> |
+      <%= link_to 'Decline', friendship_path(friend_request.id), method: :delete %>
+    </li>
+  <% end %>
+<% else %>
+    No new friend requests...
+<% end %>
+
+<h1>Pending requests</h1>
+<% if current_user.pending_friends.any? %>
+  <% current_user.pending_friends.each do |pending_friend| %>
+    <li>
+      <%= pending_friend.name %>
+      <%= pending_friend.email %> <br>
+      <%= link_to 'View', user_path(pending_friend.id) %> |
+      <%= link_to 'Remove', friendship_path(pending_friend.id), method: :delete %>
+    </li>
+  <% end %>
+<% else %>
+    No pending requests...
+<% end %>

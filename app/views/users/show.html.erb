@@ -1,0 +1,21 @@
+<section class="user-section">
+  <h2><%= "Name: #{@user.name}" %></h2>
+  <div>
+    <% if current_user.id != @user.id && !current_user.friend?(@user) %>
+      <%= form_for @friendship, url: friendships_path(@friendship), method: :post do |f| %>
+        <%= f.hidden_field :friend_id, value: @user.id %>
+        <% if current_user.pending_friends.include?(@user) %>
+          Friendship pending...
+        <% else %>
+          <%= f.submit 'Invite to friendship', class: 'add_friend' %>
+        <% end %>
+      <% end %>
+    <% end%>
+  </div>
+  <article class="timeline">
+    <h3>Recent posts:</h3>
+    <ul class="posts">
+      <%= render @posts %>
+    </ul>
+  </article>
+</section>

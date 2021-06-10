@@ -1,0 +1,24 @@
+<section class="users-section">
+  <ul class="users-list">
+    <% @users.each do |user| %>
+      <li>
+        Name: <%= user.name %>
+        <span class="profile-link">
+          <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
+        </span>
+        <span class="add-friend">
+          <% if current_user.id != user.id && !current_user.friend?(user) %>
+            <%= form_for @friendship, url: friendships_path(@friendship), method: :post do |f| %>
+              <%= f.hidden_field :friend_id, value: user.id %>
+              <% if current_user.pending_friends.include?(user) %>
+                Friendship pending...
+              <% else %>
+                <%= f.submit 'Invite to friendship', class: 'add_friend btn btn-primary' %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </span>
+      </li>
+    <% end %>
+  </ul>
+</section>

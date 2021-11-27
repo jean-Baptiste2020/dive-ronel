@@ -16,3 +16,4 @@ RSpec.feature 'AddPost', type: :feature do
     have_content 'This is a post'
   end
 end
+

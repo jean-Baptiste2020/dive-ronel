@@ -15,3 +15,4 @@ RSpec.feature 'Login', type: :feature do
     expect(page).to have_content('Signed in successfully.')
   end
 end
+

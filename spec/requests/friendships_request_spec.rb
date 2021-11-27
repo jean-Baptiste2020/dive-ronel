@@ -22,3 +22,4 @@ RSpec.describe 'Friendships', type: :request do
   #     end
   #   end
 end
+

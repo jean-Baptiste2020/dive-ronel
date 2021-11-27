@@ -4,3 +4,4 @@ class AddPersonalInfoToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :gravatar_url, :string
   end
 end
+

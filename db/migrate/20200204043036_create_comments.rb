@@ -11,3 +11,4 @@ class CreateComments < ActiveRecord::Migration[5.2]
     add_foreign_key :comments, :users, column: :user_id
   end
 end
+

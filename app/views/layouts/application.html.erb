@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Fake Book</title>
+    <title>FriendShip</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,24 +9,35 @@
   </head>
   <body>
     <nav class="nav">
-      <%= link_to 'Stay in touch', root_path %>
+      <%= link_to 'FriendShip', root_path %>
       <div class="menu">
         <div class="menu-item">
-          <%= menu_link_to 'Timeline', posts_path %>
+          <%= menu_link_to I18n.t('views.messages.group'), posts_path %>
         </div>
         <div class="menu-item">
-          <%= menu_link_to 'All users', users_path %>
+        <%= link_to I18n.t('views.messages.guestUser'), users_guest_sign_in_path, method: :post%>
+        </div>
+        <div class="menu-item">
+        <%= link_to I18n.t('views.messages.guestAdmin'), users_guest_admin_sign_in_path, method: :post%>
         </div>
         <% if signed_in? %>
-        <div class="menu_item">
-          <%= link_to "Friends (#{current_user.friend_requests.count})", friendships_path %>
+        <div style="margin-right:2%;">
+          <%= menu_link_to I18n.t('views.messages.util'), users_path %>
         </div>
         <% end %>
       </div>
       <% if current_user %>
-        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+      <div style="margin-right:2%;">
+        <%= link_to I18n.t('views.messages.ami'), friendships_path %>
+      </div>
+      <% if current_user.role? %>
+        <div style="margin-right:2%;">
+            <a class="nav-link scrollto" href="/admin"><%=I18n.t('views.messages.admin')%></a>
+        </div>
+      <% end %>
+        <%= link_to I18n.t('views.messages.logout'), destroy_user_session_path, method: :delete %>
       <% else %>
-        <%= link_to 'Sign in', user_session_path %>
+        <%= link_to I18n.t('views.messages.signIn'), user_session_path %>
       <% end %>
     </nav>
     <% if notice.present? %>

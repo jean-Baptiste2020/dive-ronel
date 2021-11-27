@@ -22,3 +22,4 @@ RSpec.feature 'AddFriend' do
     expect(count).not_to eq(count2)
   end
 end
+

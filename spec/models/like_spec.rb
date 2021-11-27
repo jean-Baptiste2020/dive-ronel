@@ -11,3 +11,4 @@ RSpec.describe Like do
     expect(t.macro).to eq(:belongs_to)
   end
 end
+

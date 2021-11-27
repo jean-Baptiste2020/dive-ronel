@@ -17,3 +17,4 @@ RSpec.feature 'AddComments', type: :feature do
     have_content 'This is a comment'
   end
 end
+

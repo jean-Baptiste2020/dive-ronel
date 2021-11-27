@@ -19,3 +19,4 @@ RSpec.feature 'AddLikes', type: :feature do
     have_content '1 Likes'
   end
 end
+

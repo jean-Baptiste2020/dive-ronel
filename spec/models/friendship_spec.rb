@@ -11,3 +11,4 @@ RSpec.describe Friendship do
     expect(t.macro).to eq(:belongs_to)
   end
 end
+

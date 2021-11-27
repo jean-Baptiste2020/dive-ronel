@@ -8,3 +8,4 @@ class CreateLikes < ActiveRecord::Migration[5.2]
     add_foreign_key :likes, :posts, column: :post_id
   end
 end
+

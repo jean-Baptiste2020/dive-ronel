@@ -29,3 +29,4 @@ class User < ApplicationRecord
     friends.include?(user)
   end
 end
+
